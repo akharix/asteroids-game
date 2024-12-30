@@ -51,6 +51,7 @@ class Player(CircleShape):
 
 
     def shoot(self):
+    # Block player from shooting when shoot_timer is more than 0. shoot_timer is subtracted by dt for each update cycle
         if self.shoot_timer > 0:
             return None
         self.shoot_timer  = PLAYER_SHOOT_COOLDOWN
@@ -59,4 +60,3 @@ class Player(CircleShape):
         shot.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED
 
         self.shots.add(shot)
-        
